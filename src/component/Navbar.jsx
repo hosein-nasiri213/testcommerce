@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 shadow-lg ">
         <div class="container">
           <a class="navbar-brand fw-bold  fs-4 " href="#">
             Freshcommerce
@@ -64,6 +64,9 @@ const Navbar = () => {
         </div>
       </nav>
     </div>
+    
+    
+
   );
 };
 export default Navbar;
