@@ -3,18 +3,19 @@ import Skeleton from "react-loading-skeleton";
 
 const Products = () => {
   const [data, setData] = useState([]);
-  const [filter, setfilter] = useState(data);
-  const [loading, setloading] = useState(false);
+  const [filter, setFilter] = useState(data);
+  const [loading, setLoading] = useState(false);
   let componentMounted = true;
 
   useEffect(() => {
     const getProducts = async () => {
-      setloading(true);
+      setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products");
+      const responseData = await response.clone().json();
       if (componentMounted) {
-        setData(await response.clone().json());
-        setfilter(await response.json());
-        setloading(false);
+        setData(responseData);
+        setFilter(responseData);
+        setLoading(false);
         console.log(filter);
       }
 
@@ -46,31 +47,50 @@ const Products = () => {
   };
 
   const filterProduct = (cat) => {
-    const updatedList = data.filter((x)=>x.category === cat);
-  }
+    const updatedList = data.filter((x) => x.category === cat);
+    setFilter(updatedList);
+  };
 
   const ShowProducts = () => {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          <button className="btn btn-outline-dark me-2" onClick={()=>setFilter(data)}>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => setFilter(data)}
+          >
             All
           </button>
-          <button className="btn btn-outline-dark me-2" onClick={() =>filterProduct("men's clothing")}>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("men's clothing")}
+          >
             Men's clothing
           </button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("women's clothing")}>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("women's clothing")}
+          >
             Women's clothing
           </button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("jewelery")}>
-            Jwelery</button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("electronic")}>Electronic</button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("jewelery")}
+          >
+            Jewelery
+          </button>
+          <button
+            className="btn btn-outline-dark me-2"
+            onClick={() => filterProduct("electronics")}
+          >
+            Electronic
+          </button>
         </div>
         {filter.map((product) => {
           return (
             <>
               <div className="col-md-3 mb-4">
-                <div class="card h-100 text-center p-4">
+                <div className="card h-100 text-center p-4">
                   <img
                     src={product.image}
                     class="card-img-top"
@@ -82,9 +102,9 @@ const Products = () => {
                       {product.title.substring(0, 12)}...
                     </h5>
                     <p class="card-text lead fw-bold">${product.price}</p>
-                    <a href="#" class="btn btn-outline-dark">
+                    <NavLink to="{`/pro`}" class="btn btn-outline-dark">
                       buy now
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
               </div>
