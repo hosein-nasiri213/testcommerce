@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light p-3 shadow-lg ">
         <div className="container">
           <NavLink className="navbar-brand fw-bold  fs-4 " to="/">
-            Freshcommerce
+            fatemeh shafiee
           </NavLink>
           <button
             className="navbar-toggler"
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-             {/* <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2 "
                 type="search"
@@ -54,20 +54,20 @@ const Navbar = () => {
                 Search
               </button>
              </form> */}
-             <i className="bi bi-search"></i>
+            <i className="bi bi-search"></i>
             <div className="buttons">
-                <NavLink to="/login" className="btn btn-outline-dark">
-                 <i className="fa fa-sign-in me-1" aria-hidden="true"></i>login</NavLink>
-                <NavLink to="cart" className="btn btn-outline-dark ms-2">
-                 <i className="fa fa-shopping-cart me-1" aria-hidden="true"></i>cart(0)</NavLink>
+              <NavLink to="/login" className="btn btn-outline-dark">
+                <i className="fa fa-sign-in me-1" aria-hidden="true"></i>login
+              </NavLink>
+              <NavLink to="cart" className="btn btn-outline-dark ms-2">
+                <i className="fa fa-shopping-cart me-1" aria-hidden="true"></i>
+                cart(0)
+              </NavLink>
             </div>
           </div>
         </div>
       </nav>
     </div>
-    
-    
-
   );
 };
 export default Navbar;

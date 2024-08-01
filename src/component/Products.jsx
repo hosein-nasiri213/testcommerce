@@ -125,7 +125,7 @@ const Products = () => {
         <div className="row">
           <div className="col-12 mb-5">
             <h1 className="display-6 fw-bolder text-center font-aviny">
-              محصولات عمو سعا
+              Products
             </h1>
             <hr />
           </div>
